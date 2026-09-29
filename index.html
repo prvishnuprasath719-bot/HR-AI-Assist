@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HR AI Assist - Job Description AI & Version Control</title>
+    <meta name="description" content="Structure raw job notes with AI, version control postings across platforms, and inspect unstructured data payloads." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  </head>
+  <body class="h-full bg-[#f7f9fb] text-[#191c1e] antialiased">
+    <div id="root" class="h-full"></div>
+
+    <!--
+      Blank-page detector. If the app crashes, or renders nothing at all,
+      this shows the reason as a red box at the top of the page instead of
+      leaving you with an empty screen. Safe to delete once the app is stable.
+    -->
+    <script>
+      (function () {
+        function show(title, detail) {
+          var box = document.getElementById("__app_error_box");
+          if (!box) {
+            box = document.createElement("pre");
+            box.id = "__app_error_box";
+            box.style.cssText =
+              "position:fixed;top:0;left:0;right:0;z-index:2147483647;margin:0;" +
+              "padding:12px 16px;background:#7f1d1d;color:#fff;" +
+              "font:13px/1.45 monospace;white-space:pre-wrap;max-height:50vh;overflow:auto";
+            (document.body || document.documentElement).appendChild(box);
+          }
+          box.textContent += title + "\n" + detail + "\n\n";
+        }
+
+        window.addEventListener("error", function (e) {
+          var where = e.filename ? "\n" + e.filename + ":" + e.lineno : "";
+          show("JavaScript error:", (e.message || "unknown error") + where);
+        });
+
+        window.addEventListener("unhandledrejection", function (e) {
+          var r = e.reason;
+          show("Unhandled promise rejection:", String((r && (r.stack || r.message)) || r));
+        });
+
+        window.addEventListener("load", function () {
+          setTimeout(function () {
+            var root = document.getElementById("root");
+            if (root && root.children.length === 0) {
+              show(
+                "The app did not render anything.",
+                "Check the terminal running npm run dev for errors, then press F12 and open the Console tab."
+              );
+            }
+          }, 3000);
+        });
+      })();
+    </script>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
